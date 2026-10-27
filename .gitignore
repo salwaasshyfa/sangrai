@@ -3,3 +3,4 @@ storage/messages.csv
 .DS_Store
 .idea/
 .vscode/
+storage/*.sqlite

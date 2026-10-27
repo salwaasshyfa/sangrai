@@ -1,5 +1,7 @@
 <?php
 require __DIR__ . '/config.php';
+require __DIR__ . '/db.php';
+$products = db()->query('SELECT * FROM products ORDER BY id')->fetchAll();
 
 // --- Proses form kontak ---
 $errors = [];
@@ -17,13 +19,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (mb_strlen($old['message']) < 10)                  $errors['message'] = 'Pesan minimal 10 karakter.';
 
     if (!$errors) {
-        $fh = fopen(__DIR__ . '/storage/messages.csv', 'a');
-        if ($fh) {
-            fputcsv($fh, [date('c'), $old['name'], $old['email'], $old['message']]);
-            fclose($fh);
+        try {
+            db()->prepare('INSERT INTO messages (name, email, message) VALUES (?,?,?)')
+                ->execute([$old['name'], $old['email'], $old['message']]);
             $sent = true;
             $old = ['name' => '', 'email' => '', 'message' => ''];
-        } else {
+        } catch (PDOException $ex) {
             $errors['form'] = 'Pesan gagal disimpan. Coba lagi sebentar.';
         }
     }

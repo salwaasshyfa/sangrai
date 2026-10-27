@@ -67,3 +67,12 @@ a{color:inherit}
   .nav nav a:not(.btn){display:none}
 }
 @media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+
+/* Admin */
+.table-wrap{overflow-x:auto}
+.table{width:100%;border-collapse:collapse;background:var(--surface);border:1px solid var(--line)}
+.table th,.table td{text-align:left;padding:.7rem 1rem;border-bottom:1px solid var(--line)}
+.actions{display:flex;gap:1rem;align-items:center;white-space:nowrap}
+.actions form{margin:0}
+.link-btn{background:none;border:0;padding:0;font:inherit;color:var(--accent);text-decoration:underline;cursor:pointer}
+.form select{font:inherit;padding:.7rem .8rem;border:1px solid var(--line);border-radius:6px;background:var(--surface);color:var(--ink)}

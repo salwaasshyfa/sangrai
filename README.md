@@ -8,7 +8,9 @@ index.php          halaman utama + proses form
 config.php         data konten & helper
 includes/          header.php, footer.php
 assets/            css/style.css, js/app.js
-storage/           pesan form (messages.csv, tidak di-commit)
+db.php             koneksi database (MySQL di Azure, SQLite di lokal)
+admin.php          halaman CRUD produk (login password)
+storage/           file SQLite lokal (tidak di-commit)
 ```
 
 ## Menjalankan lokal
@@ -28,3 +30,8 @@ git remote add origin https://github.com/USERNAME/sangrai-landing.git
 git push -u origin main
 ```
 (Buat repo dulu di github.com/new, pilih **Private**.)
+
+## Database & CRUD
+- Lokal: tanpa konfigurasi, otomatis memakai SQLite. Admin: http://localhost:8000/admin.php (password default `admin123`).
+- Azure: isi **Environment variables** pada Web App: `ADMIN_PASSWORD`, dan untuk MySQL `DB_HOST`, `DB_NAME`, `DB_USER`, `DB_PASS`.
+- Tabel dibuat otomatis saat halaman pertama dibuka.

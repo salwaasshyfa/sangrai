@@ -12,10 +12,10 @@
 </head>
 <body>
 <header class="nav">
-  <a class="logo" href="#top"><?= e(SITE_NAME) ?></a>
+  <a class="logo" href="index.php"><?= e(SITE_NAME) ?></a>
   <nav>
-    <a href="#produk">Produk</a>
-    <a href="#proses">Proses</a>
-    <a href="#kontak" class="btn btn-sm">Pesan</a>
+    <a href="index.php#produk">Produk</a>
+    <a href="index.php#proses">Proses</a>
+    <a href="index.php#kontak" class="btn btn-sm">Pesan</a>
   </nav>
 </header>
